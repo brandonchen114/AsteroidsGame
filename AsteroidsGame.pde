@@ -53,7 +53,7 @@ public void draw()
     }
     else if(keyCode == LEFT)
     {
-      bob.rotate(10);
+      bob.rotate(-10);
     }
   }
   
@@ -159,7 +159,99 @@ class Star
 }
 
 
+class Asteroids extends Floater
+{
+  private int speed();
+  public Asteroids ()
+  {
+    corners = 11;
+    xCorners = new int[corners];
+    yCorners = new int[corners];
+    
+    xCorners[0] = 0;
+    yCorners[0] = 10;
 
+    xCorners[1] = 3;
+    yCorners[1] = 9;
+
+    xCorners[2] = 5;
+    yCorners[2] = 7;
+
+    xCorners[3] = 7;
+    yCorners[3] = 6;
+
+    xCorners[4] = 7;
+    yCorners[4] = 3;
+
+    xCorners[5] = 6;
+    yCorners[5] = -1;
+
+    xCorners[6] = 3;
+    yCorners[6] = -3;
+
+    xCorners[7] = 0;
+    yCorners[7] = 3;
+
+    xCorners[8] = -3;
+    yCorners[8] = -2;
+
+    xCorners[9] = -4;
+    yCorners[9] = 2;
+
+    xCorners[10] = -6;
+    yCorners[10] = 5;
+
+    xCorners[11] = -4;
+    yCorners[11] = 9;
+
+
+
+  }
+
+
+
+    public void setX(int x)
+      {
+        myCenterX = x;
+      }
+    public int getX()
+      {
+        return (int) myCenterX;
+      }
+    public void setY(int y)
+      {
+        myCenterY = y;
+      }
+    public int getY()
+      {
+        return (int) myCenterY;
+      }
+    public void setDirectionX(double x)
+      {
+        myDirectionX = x;
+      }
+    public double getDirectionX()
+      {
+        return myDirectionX;
+      }
+    public void setDirectionY(double y)
+      {
+        myDirectionY = y;
+      }
+    public double getDirectionY()
+      {
+        return myDirectionY;
+      }
+    public void setPointDirection(int degrees)
+      {
+        myPointDirection = degrees;
+      }
+    public double getPointDirection()
+      {
+        return myPointDirection;
+      }
+
+}
 
 
 
