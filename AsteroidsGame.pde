@@ -1,10 +1,14 @@
 //your variable declarations here
 SpaceShip bob = new SpaceShip();
 Star[] star = new Star[200];
-Asteroids[] sally = new Asteroids[50];
+ArrayList <Asteroids> sally = new ArrayList <Asteroids>();
+int cNum;
 
 public void setup() 
 {
+  cNum = 10; //change # of asteroids
+
+
   size(400, 400);
 
 //making stars
@@ -12,9 +16,10 @@ public void setup()
   {
     star[i] = new Star();
   }
-  for(int i = 0; i < 50; i++)
+  //asteroids
+  for(int i = 0; i < cNum; i++)
   {
-    sally[i] = new Asteroids();
+    sally.add(new Asteroids());
   }
 }
 public void draw() 
@@ -32,10 +37,10 @@ public void draw()
   }
 //asteroids
 
-  for(int i = 0; i < 50; i++)
+  for(int i = 0; i < cNum; i++)
   {
-    sally[i].show();
-    sally[i].move();
+    sally.get(i).show();
+    sally.get(i).move();
   }
 }
 
@@ -172,6 +177,7 @@ class Star
 
 class Asteroids extends Floater
 {
+  private int myNum;
   private int rotSpeed;
   public Asteroids ()
   {
@@ -212,14 +218,15 @@ class Asteroids extends Floater
     xCorners[10] = -6;
     yCorners[10] = 5;
 
+
     xCorners[11] = -4;
     yCorners[11] = 9;
 
     rotSpeed = (int)((Math.random()*8)-4);
     myCenterX = (int)(Math.random()*400);
     myCenterY = (int)(Math.random()*400);
-    myDirectionX = (Math.random()*4);
-    myDirectionY = (Math.random()*4);
+    myDirectionX = (Math.random()*8)-4;
+    myDirectionY = (Math.random()*8)-4;
     myPointDirection = (Math.random()*400);
 
     myColor = 50;
@@ -227,7 +234,6 @@ class Asteroids extends Floater
 
 
   }
-
 
 
     public void setX(int x)
