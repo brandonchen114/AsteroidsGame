@@ -6,7 +6,7 @@ int cNum;
 
 public void setup() 
 {
-  cNum = 10; //change # of asteroids
+  cNum = 17; //change # of asteroids
 
 
   size(400, 400);
@@ -17,10 +17,11 @@ public void setup()
     star[i] = new Star();
   }
   //asteroids
-  for(int i = 0; i < cNum; i++)
+  for(int i = 0; i <= cNum; i++)
   {
     sally.add(new Asteroids());
   }
+
 }
 public void draw() 
 {
@@ -37,10 +38,14 @@ public void draw()
   }
 //asteroids
 
-  for(int i = 0; i < cNum; i++)
+  for(int i = 0; i < sally.size(); i++)
   {
     sally.get(i).show();
     sally.get(i).move();
+
+    if(dist(bob.getX(), bob.getY(), sally.get(i).getX(), sally.get(i).getY())<20){
+      sally.remove(i);
+    }
   }
 }
 
@@ -285,7 +290,6 @@ class Asteroids extends Floater
 
 
 }
-
 
 
 
