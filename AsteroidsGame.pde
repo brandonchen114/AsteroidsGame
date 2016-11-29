@@ -1,5 +1,7 @@
 //your variable declarations here
+
 SpaceShip bob = new SpaceShip();
+Bullet asdf = new Bullet(bob);
 Star[] star = new Star[200];
 ArrayList <Asteroids> sally = new ArrayList <Asteroids>();
 int cNum;
@@ -30,7 +32,7 @@ public void draw()
 //spaceship move
   bob.move();
   bob.show();
-
+  asdf.show();
 //showing stars
   for(int i = 0; i < 200; i++)
   {
@@ -47,6 +49,7 @@ public void draw()
       sally.remove(i);
     }
   }
+
 }
 
 
