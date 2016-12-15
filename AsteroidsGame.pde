@@ -99,12 +99,9 @@ public void draw()
     {
       bob.rotate(-10);
     }  
-    if(key == 'z')
-    {
-      asdf.add(new Bullet(bob));
-    }
+}
 
-  }
+
   
 //hyperspace
   public void keyTyped()
@@ -116,8 +113,16 @@ public void draw()
       bob.setDirectionX(0);
       bob.setDirectionY(0);
       bob.setPointDirection(0);
+    }    
+    if(key == 'z')
+    {
+      asdf.add(new Bullet(bob));
     }
+
   }
+
+
+
 
 
 class SpaceShip  extends Floater
@@ -136,7 +141,7 @@ class SpaceShip  extends Floater
     xCorners[2] = -8;
     yCorners[2] = 8;
     
-
+//where spaceship starts off
     myCenterX = 100;
     myCenterY = 100;
     myDirectionX = 0;
@@ -146,7 +151,6 @@ class SpaceShip  extends Floater
     myColor = 255;
 
   }
-
 
     public void setX(int x)
       {
@@ -190,6 +194,8 @@ class SpaceShip  extends Floater
       }
 }
 
+
+
 class Star
 {
   private int myX, myY;
@@ -208,6 +214,7 @@ class Star
 }
 
 
+ 
 class Asteroids extends Floater
 {
   private int myNum;
@@ -264,10 +271,7 @@ class Asteroids extends Floater
 
     myColor = 50;
 
-
-
   }
-
 
     public void setX(int x)
       {
@@ -318,33 +322,6 @@ class Asteroids extends Floater
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
