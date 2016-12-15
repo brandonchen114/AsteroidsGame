@@ -1,7 +1,7 @@
 //your variable declarations here
 
 SpaceShip bob = new SpaceShip();
-Bullet asdf = new Bullet(bob);
+ArrayList <Bullet> asdf = new ArrayList <Bullet>();
 Star[] star = new Star[200];
 ArrayList <Asteroids> sally = new ArrayList <Asteroids>();
 int cNum;
@@ -29,24 +29,44 @@ public void draw()
 {
   background(0);
 
-//spaceship move
-  bob.move();
-  bob.show();
-  asdf.show();
+
 //showing stars
   for(int i = 0; i < 200; i++)
   {
     star[i].show();
   }
+//bullets
+  for(int i = 0; i < asdf.size(); i++)
+  {
+    asdf.get(i).show();
+    asdf.get(i).move();
+  }
+  //spaceship move
+  bob.move();
+  bob.show();
 //asteroids
 
+//if asteroids hits ship
   for(int i = 0; i < sally.size(); i++)
   {
+
     sally.get(i).show();
     sally.get(i).move();
 
-    if(dist(bob.getX(), bob.getY(), sally.get(i).getX(), sally.get(i).getY())<20){
+    if(dist(bob.getX(), bob.getY(), sally.get(i).getX(), sally.get(i).getY())<20)
+    {
       sally.remove(i);
+    }
+  }
+//if asteroids hit bullet
+  for(int z = 0; z < sally.size(); z++)
+  {
+    for(int x = 0; x < asdf.size(); x++)
+    if(dist(asdf.get(x).getX(), asdf.get(x).getY(), sally.get(z).getX(), sally.get(z).getY())<10)
+    {
+      asdf.remove(x);
+      sally.remove(z);
+      break;
     }
   }
 
@@ -78,7 +98,12 @@ public void draw()
     else if(keyCode == LEFT)
     {
       bob.rotate(-10);
+    }  
+    if(key == 'z')
+    {
+      asdf.add(new Bullet(bob));
     }
+
   }
   
 //hyperspace
